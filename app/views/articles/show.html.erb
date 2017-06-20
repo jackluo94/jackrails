@@ -15,10 +15,14 @@
   <%= @article.published_date %>
 </p>
 
-<p>
-  <strong>Published:</strong>
-  <%= @article.published %>
-</p>
+<% if current_user.try(:admin?) %>
+    <p>
+      <strong>Published:</strong>
+      <%= @article.published %>
+    </p>
+<% end %>
+
+
 
 <p>
   <strong>Content:</strong>

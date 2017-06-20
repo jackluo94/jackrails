@@ -28,10 +28,13 @@
     <%= f.datetime_select :published_date %>
   </div>
 
-  <div class="field">
-    <%= f.label :published %>
-    <%= f.check_box :published %>
-  </div>
+    <% if current_user.try(:admin?) %>
+        <div class="field">
+          <%= f.label :published %>
+          <%= f.check_box :published %>
+        </div>
+    <% end %>
+
 
   <div class="field smallerMce">
     <%= f.label :content %>
