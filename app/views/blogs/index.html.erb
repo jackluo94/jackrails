@@ -30,10 +30,10 @@
         <% if user_signed_in? %>
             <td><%= link_to 'Show', blog %></td>
 
-            <% if current_user.try(:admin?) %>
+
                 <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
                 <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% end %>
+
         <% end %>
 
       </tr>
@@ -47,7 +47,7 @@
 
 
 
-<% if current_user.try(:admin?)  %>
+<% if user_signed_in?  %>
     <br/>
   <%= link_to 'New Blog', new_blog_path %>
 <% end %>

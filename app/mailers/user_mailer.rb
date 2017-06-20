@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
     @question = params['question']
     @prefered = params['prefered']
     @product = params['products']
-    mail to: [params['email'], "jackluo94@hotmail.com"], bcc: ["dave.jones@scc.spokane.edu"]
+    mail to: [params['email'], "jackluo94@hotmail.com"]
   end
 
   def sent_article_email(article)

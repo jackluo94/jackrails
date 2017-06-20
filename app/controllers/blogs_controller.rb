@@ -1,16 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
 
-
-  def authenticate_admin
-    authenticate_user!
-    if(current_user.try(:admin?))
-      return
-    else
-      redirect_to root_url
-    end
-  end
 
   def index
     @blogs = Blog.order(created_at: :desc).page(params[:page])

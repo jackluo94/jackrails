@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   # set the article object before each of these for use
   before_action :set_article, only: [:show, :edit, :update, :destroy, :email_article]
 
-  before_action :authenticate_admin, except: [:index, :show]
+  before_action :authenticate_admin, except: [:index, :show, :new, :create, :edit, :update]
 
   #doesn't work unless i create an admin table..
   #before_action :authenticate_admin!, except: [:index, :show]

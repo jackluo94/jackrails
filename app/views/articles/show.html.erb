@@ -30,7 +30,7 @@
   <%= @article.avatarurl %>
 </p>
 
-<% if current_user.try(:admin?) %>
+<% if user_signed_in? %>
     <%= link_to 'Edit', edit_article_path(@article) %> |
 <% end %>
 
