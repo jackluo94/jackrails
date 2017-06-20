@@ -1,0 +1,15 @@
+Hello There
+<%= @article.title %>
+
+<%= @article.author %>
+
+<%= @article.published_date %>
+
+<%= @article.content.html_safe %>
+
+<%= @article.avatarurl %>
+
+<%= @article.created_at %>
+
+
+<%= link_to('This Article', article_url(@article.id) ) %>

@@ -1,0 +1,16 @@
+Hello <%= @user.first_name%>, here is an article to enjoy!
+
+<%= @article.title %>
+
+<%= @article.author %>
+
+<%= @article.published_date %>
+
+<%= @article.content.html_safe %>
+
+<%= @article.avatarurl %>
+
+<%= @article.created_at %>
+
+
+<%= link_to('This Article', article_url(@article.id) ) %>

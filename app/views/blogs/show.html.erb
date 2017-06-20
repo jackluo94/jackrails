@@ -1,0 +1,88 @@
+<p id="notice"><%= notice %></p>
+
+Average Review:
+<br/>
+<%= (image_tag("rating_star.png", size: "27x20") * @blog.comments.average(:rating).to_i).html_safe %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @blog.title %>
+</p>
+
+<p>
+  <strong>Published date:</strong>
+  <%= @blog.published_date %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @blog.author %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @blog.content.html_safe %>
+</p>
+
+
+<% if current_user.try(:admin?) %>
+    <%= link_to 'Edit', edit_blog_path(@blog) %> |
+<% end %>
+
+<%= link_to 'Back', blogs_path %>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<h2>Comments</h2>
+
+<% @blog.comments.order(created_at: :desc).each do |comment| %>
+    <hr>
+    <%= image_tag(comment.avatar_url, size: '80x80', alt: "Your Icon") %><br/>
+    <%= comment.author %> says <br/>
+    <%= comment.content %> <br/>
+    <%= (image_tag("rating_star.png", size: "20x15") * comment.rating).html_safe %> <br/>
+    <%= time_ago_in_words(comment.created_at) %> ago
+    <% if current_user.try(:admin?) %>
+        <br/>
+        <%= link_to 'Remove', blog_comment_path(@blog, comment), method: :delete, data: {confirm: 'Are you really sure?'}, class: 'redDelete' %>
+    <% end %>
+    <hr>
+<% end %>
+
+
+<% if user_signed_in? %>
+<h3>Enter Your Comment</h3>
+
+<%= form_for([@blog, @blog.comments.build]) do |f| %>
+
+    <%= f.hidden_field :blog_id %>
+
+    <div class="field">
+      <%= f.label :author %>
+      <%= f.text_field :author %>
+    </div>
+
+    <div class="field">
+      <%= f.label :content %>
+      <%= f.text_area :content %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Image Url" %>
+      <%= f.text_field :avatar_url %>
+    </div>
+
+    <div class="field">
+      <%= f.label :rating %>
+      <%= f.select :rating, options_for_select(1..5) %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+<% end %>
+<% end %>

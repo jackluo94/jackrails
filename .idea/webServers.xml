@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="07c994bd-4f99-4edf-be69-72a11405a13f" name="jackluo.tech" url="http://104.131.166.5">
+        <fileTransfer host="104.131.166.5" port="22" rootFolder="/home/rails/rails_project" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

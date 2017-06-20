@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Store Products</h1>
+
+<% if user_signed_in? %>
+    <% if current_user.try(:admin?) %>
+      <h2>Go to: <%= link_to "Products", products_path %></h2>
+    <% end %>
+<% end %>
+
+<%= paginate @products %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Shipping Weight</th>
+      <th>Thumbnail</th>
+      <th>Full size</th>
+      <th>Avg Rating</th>
+
+      <th colspan="1"></th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.name, store_show_path(product.id) %></td>
+        <td><%= product.description.html_safe %></td>
+        <td><%= product.qty_on_hand %></td>
+        <td><%= product.price %></td>
+        <td><%= product.shipping_weight %></td>
+        <td><%= product.thumbnail %></td>
+        <td><%= product.full_size %></td>
+        <td><%= product.reviews.average(:rating).to_f %></td>
+
+        <td><%= link_to 'Show', store_show_path(product.id) %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= paginate @products %>
+
+<br/>
+
+

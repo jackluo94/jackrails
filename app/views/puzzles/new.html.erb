@@ -1,0 +1,16 @@
+
+
+<%= form_tag( '/puzzles/show.pdf', method: 'post', class: 'formBlack') do %>
+
+    <%= label_tag('puzzle_name', 'Enter puzzle name: ') %>
+    <%= text_field_tag('puzzle_name', @puzzle_name) %>
+
+    <br/>
+    <%= label_tag('words', 'Enter your words (new word each line) : ') %>
+    <%= text_area_tag('puzzle_words', @puzzle_words, size: '20x15') %>
+
+    <br/>
+    <%= submit_tag('Create Puzzle') %>
+
+<% end %>
+

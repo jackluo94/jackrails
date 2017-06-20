@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Articles</h1>
+
+<%= paginate @articles %>
+<div class="lessWidth">
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Published date</th>
+      <th>Published</th>
+      <th>Content</th>
+      <th>Avatarurl</th>
+      <% if user_signed_in? %>
+          <th colspan="4"></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+
+        <td><%= link_to article.title, article %></td>
+        <td><%= article.author %></td>
+        <td><%= article.published_date %></td>
+        <td><%= article.published %></td>
+        <!--<td><%= truncate(article.content, length: 50).html_safe %></td>-->
+        <td><%= article.content.html_safe %></td>
+        <td><%= article.avatarurl %></td>
+
+        <% if user_signed_in? %>
+            <td><%= link_to 'Show', article %></td>
+            <% if current_user.try(:admin?) %>
+                <td><%= link_to 'Edit', edit_article_path(article) %></td>
+                <td><%= link_to 'Email', email_article_path(article) %></td>
+                <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+        <% end %>
+
+
+
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<%= paginate @articles %>
+
+<br/>
+
+<% if current_user.try(:admin?) %>
+    <%= link_to 'New Article', new_article_path %>
+<% end %>
+

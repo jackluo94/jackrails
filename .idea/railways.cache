@@ -1,0 +1,100 @@
+                  Prefix Verb   URI Pattern                                      Controller#Action
+                   blogs GET    /blogs(.:format)                                 blogs#index
+                         POST   /blogs(.:format)                                 blogs#create
+                new_blog GET    /blogs/new(.:format)                             blogs#new
+               edit_blog GET    /blogs/:id/edit(.:format)                        blogs#edit
+                    blog GET    /blogs/:id(.:format)                             blogs#show
+                         PATCH  /blogs/:id(.:format)                             blogs#update
+                         PUT    /blogs/:id(.:format)                             blogs#update
+                         DELETE /blogs/:id(.:format)                             blogs#destroy
+                         GET    /blogs/page/:page(.:format)                      blogs#index
+                         GET    /blogs(.:format)                                 blogs#index
+                         POST   /blogs(.:format)                                 blogs#create
+                         GET    /blogs/new(.:format)                             blogs#new
+                         GET    /blogs/:id/edit(.:format)                        blogs#edit
+                         GET    /blogs/:id(.:format)                             blogs#show
+                         PATCH  /blogs/:id(.:format)                             blogs#update
+                         PUT    /blogs/:id(.:format)                             blogs#update
+                         DELETE /blogs/:id(.:format)                             blogs#destroy
+             puzzles_new GET    /puzzles/new(.:format)                           puzzles#new
+            puzzles_show POST   /puzzles/show(.:format)                          puzzles#show
+        new_user_session GET    /users/sign_in(.:format)                         devise/sessions#new
+            user_session POST   /users/sign_in(.:format)                         devise/sessions#create
+    destroy_user_session DELETE /users/sign_out(.:format)                        devise/sessions#destroy
+       new_user_password GET    /users/password/new(.:format)                    devise/passwords#new
+      edit_user_password GET    /users/password/edit(.:format)                   devise/passwords#edit
+           user_password PATCH  /users/password(.:format)                        devise/passwords#update
+                         PUT    /users/password(.:format)                        devise/passwords#update
+                         POST   /users/password(.:format)                        devise/passwords#create
+cancel_user_registration GET    /users/cancel(.:format)                          devise/registrations#cancel
+   new_user_registration GET    /users/sign_up(.:format)                         devise/registrations#new
+  edit_user_registration GET    /users/edit(.:format)                            devise/registrations#edit
+       user_registration PATCH  /users(.:format)                                 devise/registrations#update
+                         PUT    /users(.:format)                                 devise/registrations#update
+                         DELETE /users(.:format)                                 devise/registrations#destroy
+                         POST   /users(.:format)                                 devise/registrations#create
+                articles GET    /articles(.:format)                              articles#index
+                         POST   /articles(.:format)                              articles#create
+             new_article GET    /articles/new(.:format)                          articles#new
+            edit_article GET    /articles/:id/edit(.:format)                     articles#edit
+                 article GET    /articles/:id(.:format)                          articles#show
+                         PATCH  /articles/:id(.:format)                          articles#update
+                         PUT    /articles/:id(.:format)                          articles#update
+                         DELETE /articles/:id(.:format)                          articles#destroy
+                products GET    /products(.:format)                              products#index
+                         POST   /products(.:format)                              products#create
+             new_product GET    /products/new(.:format)                          products#new
+            edit_product GET    /products/:id/edit(.:format)                     products#edit
+                 product GET    /products/:id(.:format)                          products#show
+                         PATCH  /products/:id(.:format)                          products#update
+                         PUT    /products/:id(.:format)                          products#update
+                         DELETE /products/:id(.:format)                          products#destroy
+         product_reviews GET    /products/:product_id/reviews(.:format)          reviews#index
+                         POST   /products/:product_id/reviews(.:format)          reviews#create
+      new_product_review GET    /products/:product_id/reviews/new(.:format)      reviews#new
+     edit_product_review GET    /products/:product_id/reviews/:id/edit(.:format) reviews#edit
+          product_review GET    /products/:product_id/reviews/:id(.:format)      reviews#show
+                         PATCH  /products/:product_id/reviews/:id(.:format)      reviews#update
+                         PUT    /products/:product_id/reviews/:id(.:format)      reviews#update
+                         DELETE /products/:product_id/reviews/:id(.:format)      reviews#destroy
+                         GET    /products/page/:page(.:format)                   products#index
+                         GET    /products(.:format)                              products#index
+                         POST   /products(.:format)                              products#create
+                         GET    /products/new(.:format)                          products#new
+                         GET    /products/:id/edit(.:format)                     products#edit
+                         GET    /products/:id(.:format)                          products#show
+                         PATCH  /products/:id(.:format)                          products#update
+                         PUT    /products/:id(.:format)                          products#update
+                         DELETE /products/:id(.:format)                          products#destroy
+                         GET    /articles/page/:page(.:format)                   articles#index
+                         GET    /articles(.:format)                              articles#index
+                         POST   /articles(.:format)                              articles#create
+                         GET    /articles/new(.:format)                          articles#new
+                         GET    /articles/:id/edit(.:format)                     articles#edit
+                         GET    /articles/:id(.:format)                          articles#show
+                         PATCH  /articles/:id(.:format)                          articles#update
+                         PUT    /articles/:id(.:format)                          articles#update
+                         DELETE /articles/:id(.:format)                          articles#destroy
+           email_article GET    /articles/email_article/:id(.:format)            articles#email_article
+             store_index GET    /store/index(.:format)                           store#index
+              store_show GET    /store/:id(.:format)                             store#show
+                         GET    /store/page/:page(.:format)                      store#index
+                         GET    /store(.:format)                                 store#index
+                         POST   /store(.:format)                                 store#create
+               new_store GET    /store/new(.:format)                             store#new
+              edit_store GET    /store/:id/edit(.:format)                        store#edit
+                   store GET    /store/:id(.:format)                             store#show
+                         PATCH  /store/:id(.:format)                             store#update
+                         PUT    /store/:id(.:format)                             store#update
+                         DELETE /store/:id(.:format)                             store#destroy
+               page_home GET    /page/home(.:format)                             page#home
+           page_about_us GET    /page/about_us(.:format)                         page#about_us
+         page_contact_us GET    /page/contact_us(.:format)                       page#contact_us
+                         POST   /page/contact_us(.:format)                       page#contact_us
+           page_products GET    /page/products(.:format)                         page#products
+         page_newsletter GET    /page/newsletter(.:format)                       page#newsletter
+               page_blog GET    /page/blog(.:format)                             page#blog
+           page_calendar GET    /page/calendar((/:month)/:year)(.:format)        page#calendar
+           page_articles GET    /page/articles(.:format)                         page#articles
+              page_login GET    /page/login(.:format)                            page#login
+                    root GET    /                                                page#home

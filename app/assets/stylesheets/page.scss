@@ -1,0 +1,76 @@
+@media (max-width:767px)
+{
+  body {
+
+    padding-top: 20px;
+    //helps put at bottom
+    //height:100%;
+    //padding-bottom:60px;
+    ///
+  }
+
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a{
+    color: #fff;
+  }
+}
+
+@media (min-width: 992px) and (max-width:1199px){
+  body{
+    //helps put at bottom
+    //height:100%;
+    //padding-bottom:60px;
+    ///
+  }
+}
+
+.navbar-fixed-top {
+  border-width: 0 0 0;
+}
+
+body {
+  background-image: image_url("bg.jpg");
+  background-size: 100%;
+  color: white;
+}
+
+.navbar-default{
+  background-color: #3b1a31;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: white;
+}
+
+.setHeight{
+  height: 50px;
+}
+
+main{
+  text-align: center;
+  margin-top: 100px;
+  height: 100%;
+}
+
+.formBlack{
+  color: rgb(255, 86, 0);
+}
+
+.centerThis{
+  margin: 0 auto;
+  font-family: "Courier New";
+}
+
+.alert, .notice {
+  border: red 1px solid;
+  color: red;
+}
+
+.monthLinks{
+  color: red;
+  margin: 20px 30px;
+}
+
+.smallerDates{
+  font-size: 0.7em;
+  color: rgba(248, 196, 146, 0.4);
+}

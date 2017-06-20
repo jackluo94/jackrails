@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+Average Review:
+<br/>
+<%= (image_tag("rating_star.png", size: "27x20") * @product.reviews.average(:rating).to_i).html_safe %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description.html_safe %>
+</p>
+
+<p>
+  <strong>Qty on hand:</strong>
+  <%= @product.qty_on_hand %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @product.cost %>
+</p>
+
+<p>
+  <strong>Shipping weight:</strong>
+  <%= @product.shipping_weight %>
+</p>
+
+<p>
+  <strong>Thumbnail:</strong>
+  <%= @product.thumbnail %>
+</p>
+
+<p>
+  <strong>Full size:</strong>
+  <%= @product.full_size %>
+</p>
+
+<% if current_user.try(:admin?) %>
+    <%= link_to 'Edit', edit_product_path(@product) %> |
+<% end %>
+
+<%= link_to 'Back', products_path %>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<h2>Reviews</h2>
+
+<% @product.reviews.each do |review| %>
+    <hr>
+    <%= review.name %> says <br/>
+    <%= review.comment %> <br/>
+    <%= (image_tag("rating_star.png", size: "20x15") * review.rating).html_safe %> <br/>
+    <%= time_ago_in_words(review.created_at) %> ago
+    <% if current_user.try(:admin?) %>
+        <br/>
+        <%= link_to 'Remove', product_review_path(@product, review), method: :delete, data: {confirm: 'Are you really sure?'}, class: 'redDelete' %>
+    <% end %>
+    <hr>
+<% end %>
+
+<h3>Enter Your Review</h3>
+
+<%= form_for([@product, @product.reviews.build]) do |f| %>
+
+    <%= f.hidden_field :product_id %>
+
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :comment %>
+      <%= f.text_area :comment %>
+    </div>
+
+    <div class="field">
+      <%= f.label :rating %>
+      <%= f.select :rating, options_for_select(1..10) %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+<% end %>

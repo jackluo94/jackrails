@@ -1,0 +1,18 @@
+<h1>The type of products we have.</h1>
+<p>We sell a whole lot of nothing.</p>
+<br/>
+
+
+<h5>Jack's Apothecary Supplies</h5>
+
+<table style="border: 1px solid white" class="centerThis">
+  <thead><td>Name</td><td>Price</td></thead>
+
+    <% @products.each do |key, value| %>
+      <tr>
+        <td style="border: 1px solid white"><%= key %></td>
+        <td style="border: 1px solid white"><%= value %></td>
+      </tr>
+    <% end %>
+
+</table>

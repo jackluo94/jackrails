@@ -1,0 +1,65 @@
+<%= tinymce %>
+
+<h1>Contact Us</h1>
+<p>You wish to contact me?</p>
+
+<br/>
+
+<%= form_tag( page_contact_us_path, method: 'post', class: 'formBlack') do %>
+
+    <%= label_tag('name', 'Enter your name : ') %>
+    <%= text_field_tag('name', @name) %>
+
+    <br/>
+    <%= label_tag('email', 'Enter email: ') %>
+    <%= email_field_tag('email', @email) %>
+
+    <br/>
+    <%= label_tag('phone', 'Enter phone: ') %>
+    <%= phone_field_tag('phone', @phone) %>
+
+    <br/>
+    <div class="smallerMce">
+      <%= label_tag('question', 'Enter your question: ') %>
+      <%= text_area_tag('question', @question, :size=>"30x2", :class => 'tinymce') %>
+    </div>
+
+    <br/>
+    <%= label_tag('gender', 'Prefered contact type: ') %>
+    <br/>
+    Email: <%= radio_button_tag('prefered', 'email', @preferEmail) %>
+    Phone: <%= radio_button_tag('prefered', 'phone', @preferPhone) %>
+
+    <br/>
+    <%= label_tag('products', 'Select a product: ') %>
+    <%= select_tag('products', options_for_select(@products, @selectedProduct) ) %>
+
+    <br/>
+    <%= check_box_tag('signup', 'signup', @signupcheck) %>
+    <%= label_tag('signup', 'Sign Up for my secret evil email!') %>
+
+    <br/>
+    <%= check_box_tag('request', 'request', @requestcheck) %>
+    <%= label_tag('request', 'Request an secret package to be delivered') %>
+
+    <br/>
+    <%= submit_tag('Send Question') %>
+
+<% end %>
+
+
+<br/>
+
+<% if params[:commit] %>
+    <div class="centerThis" style="border: 1px solid red">
+      Name: <%= params[:name] %> <br/>
+      Email: <%= params[:email] %> <br/>
+      Phone: <%= params[:phone] %> <br/>
+      Question: <%= params[:question].html_safe %> <br/>
+      Prefered Context: <%= params[:prefered] %> <br/>
+      Products: <%= params[:products] %> <br/>
+      Sign Up Letter: <%= params[:signup] %> <br/>
+      Request Package: <%= params[:request] %> <br/>
+      Submitted: <%= params[:commit] %>
+    </div>
+<% end %>

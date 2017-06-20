@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jack - Rails 2017</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+  </head>
+
+  <body>
+
+    <%= render 'layouts/nav', show_logo: true %>
+
+  <main>
+
+    <% if(notice != "" && notice) %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+
+    <% if(alert != "" && alert) %>
+        <p class="alert"><%= alert %></p>
+    <% end %>
+
+    <% if current_user %>
+        <% if current_user.first_name && current_user.last_name %>
+          <p> Hello <%= current_user.first_name + " " + current_user.last_name %></p>
+        <% end %>
+    <% end %>
+
+
+    <%= yield %>
+
+  </main>
+
+  <footer class="text-center">
+    <br/>
+    Copyright &copy; 1994-2017 Jack
+  </footer>
+
+
+  </body>
+
+
+</html>
