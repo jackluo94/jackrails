@@ -3,7 +3,7 @@ class Article < ApplicationRecord
 
   validates :content, length: { minimum: 50, maximum: 5000}
 
-  validates :published, inclusion: { in: [ true, false ] }
+  #validates :published, inclusion: { in: [ true, false ] }
 
   validates_format_of :avatarurl, :with => /https?:\/\/[\S]+/, message: "must be http://- or https://-"
 
